@@ -49,6 +49,12 @@ def parsePropertiesFile(filename):
 
   return myprops
 
+# look at values from properties file and look for any substitutions
+def evaluateInnerValues(myprops):
+  for key in myprops:
+    myprops[key] = Template(myprops[key]).render(**myprops)
+  return myprops
+
 
 
 ####### MAIN ########################
@@ -71,6 +77,9 @@ mytemplate = Template(filename=sys.argv[1])
 
 # get properties
 myprops = parsePropertiesFile(sys.argv[2])
+
+# reevaluate property values for any embedded ${}
+myprops = evaluateInnerValues(myprops)
 
 # exposed functions
 myprops['get_quote_and_indent'] = get_quote_and_indent

@@ -2,4 +2,6 @@ This is the first line, ${var1}
 
      ${get_quote_and_indent(person,"quote.txt",5)}
 
+     ${who}
+
 This is the last line.
