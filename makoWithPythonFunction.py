@@ -6,7 +6,7 @@
 # Prequisites Python2
 # Ubuntu dependencies:
 #   sudo apt-get install python-dev python-pip
-#   pip install mako
+#   sudo pip install mako [--proxy http://<proxy>:3128]
 #
 #
 import sys
